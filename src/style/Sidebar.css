@@ -1,0 +1,146 @@
+.container {
+	display: flex;
+}
+.sidebar-container {
+	background-color: var(--dark);
+	width: 300px;
+	height: 100vh;
+	color: var(--light);
+}
+.sidebar-container-out {
+	width: 50px;
+}
+
+.nav-heading,
+.nav-upper,
+.nav-menu,
+.menu-item,
+.nav-footer {
+	/* border: 2px solid white; */
+	display: grid;
+}
+
+.nav-heading {
+	grid-template-columns: 0fr 1fr;
+	grid-template-rows: 1fr;
+	height: 75px;
+	margin-left: 5px;
+}
+.logo {
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin: auto;
+	border-radius: 7px;
+}
+.nav-heading-title {
+	margin-left: 15px;
+	font-size: 23px;
+	font-weight: 900;
+}
+
+.nav-menu {
+	margin-top: 50px;
+}
+.menu-item {
+	height: 37px;
+	font-size: 28px;
+	display: flex;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin-left: 5px;
+	padding-left: 3px;
+	margin-right: 4px;
+	margin-bottom: 2px;
+	padding-top: 2px;
+	border-radius: 10px;
+}
+.menu-item-icon {
+	color: var(--light);
+}
+.menu-item-text {
+	margin-left: 15px;
+	color: var(--light);
+}
+.menu-item:hover {
+	background-color: var(--primary);
+}
+
+.nav-footer {
+	width: 41px;
+	height: 57px;
+	font-size: 28px;
+	position: absolute;
+	bottom: 0;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
+}
+
+.nav-footer-user-name {
+	font-size: 18px;
+	font-weight: 900;
+}
+
+.logout-icon {
+	width: 30px;
+	margin-left: 5px;
+	padding-left: 6px;
+	margin-right: 5px;
+	padding-right: 5px;
+	margin-bottom: 20px;
+	padding-top: 7px;
+	border-radius: 10px;
+}
+.logout-icon:hover {
+	background-color: var(--primary);
+
+}
+
+main {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 38px;
+	width: 90%;
+	color: var(--dark);
+}
+
+.children-container {
+	width: 90%;
+	margin-top: 15px;
+	margin-left: 10px;
+}
+
+nav ul{
+	height:250px; 
+	width:100%;
+	overflow:hidden; 
+	overflow-y:scroll;
+	list-style: none;
+}
+
+.appIdEntry {
+	width: 100%;
+}
+.appIdEntry:hover {
+	background-color: var(--primary);
+	cursor: default;
+}
+
+.deviceEntry {
+	width: 100%;
+}
+.deviceEntry:hover {
+	background-color: var(--primary);
+	cursor: default;
+}
+
+.newAppTitle {
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.newDevTitle {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
