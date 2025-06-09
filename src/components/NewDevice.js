@@ -75,6 +75,7 @@ const NewDevice = (props) => {
     };
 
     useEffect(() => {
+        setClick2List('side-Devices');
         return () => {
             let side_tab = document.getElementById('side-Devices');
             if (side_tab && typeof side_tab.removeAttribute === 'function') {
@@ -84,62 +85,59 @@ const NewDevice = (props) => {
     }, [])
 
     let setClick2List = (id) => {
-        // let side_tab = document.getElementById(id);
-        // side_tab.setAttribute('onClick', 'location.reload()')
         const el = document.getElementById(id);
-    if (el) {
-        el.setAttribute('some-attribute', 'some-value');
-    }
+        if (el) {
+            el.setAttribute('some-attribute', 'some-value');
+        }
     }
     
     return (
-        <div class='new-device-container'>
-        {setClick2List('side-Devices')}
-        <h1>신규 디바이스</h1>
-        <Box mt={10} display="flex">
-            <Form onSubmit={handleSubmit}>
-                <Box m={2}>
-                    <TextField sx={{ boxShadow: 3 }} required id="devId" label="Device Id" variant="filled" />
-                    <TextField sx={{ boxShadow: 3 }} id="password" label="Token" variant="filled" />
-                </Box>
-                <Box m={2} sx={{ display: 'flex', gap: 2 }}>
-                    <FormControl 
-                        variant="filled" 
-                        sx={{ boxShadow: 3, width: '100%' }}
-                    >
-                        <InputLabel id="device-type-label">디바이스 종류</InputLabel>
-                        <Select
-                            labelId="device-type-label"
-                            id="deviceType"
-                            value={deviceType}
-                            label="Device Type"
-                            onChange={handleTypeChange}
+        <div className='new-device-container'>
+            <h1>신규 디바이스</h1>
+            <Box mt={10} display="flex">
+                <Form onSubmit={handleSubmit}>
+                    <Box m={2}>
+                        <TextField sx={{ boxShadow: 3 }} required id="devId" label="디바이스 ID" variant="filled" />
+                        <TextField sx={{ boxShadow: 3 }} id="password" label="토큰" variant="filled" />
+                    </Box>
+                    <Box m={2} sx={{ display: 'flex', gap: 2 }}>
+                        <FormControl 
+                            variant="filled" 
+                            sx={{ boxShadow: 3, width: '100%' }}
                         >
-                            <MenuItem value='device'>디바이스</MenuItem>
-                            <MenuItem value='gateway'>게이트웨이</MenuItem>
-                        </Select>
-                    </FormControl>
-                </Box>
-                <Box m={2}>
-                    <TextField id="devDesc" label="Description" multiline rows={3}  style={{width:'100%'}}/>
-                </Box>
-                <Box m={2}>
-                    <TextField sx={{ boxShadow: 3 }} id="devMaker" label="Manufacturer" variant="filled" />
-                    <TextField sx={{ boxShadow: 3 }} id="devSerial" label="Serial Number" variant="filled" />
-                </Box>
-                <Box m={2}>
-                    <TextField sx={{ boxShadow: 3 }} id="devModel" label="Model" variant="filled" />
-                    <TextField sx={{ boxShadow: 3 }} id="devHwVer" label="Hardware Version" variant="filled" />
-                </Box>
-                <Box m={2} sx={{ display: 'flex', gap: 2 }}>
-                    <TextField sx={{ boxShadow: 3, width: '50%' }} id="devFwVer" label="Firmware Version" variant="filled" />
-                </Box>
+                            <InputLabel id="device-type-label">디바이스 종류</InputLabel>
+                            <Select
+                                labelId="device-type-label"
+                                id="deviceType"
+                                value={deviceType}
+                                label="디바이스 종류"
+                                onChange={handleTypeChange}
+                            >
+                                <MenuItem value='device'>디바이스</MenuItem>
+                                <MenuItem value='gateway'>게이트웨이</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                    <Box m={2}>
+                        <TextField id="devDesc" label="설명명" multiline rows={3}  style={{width:'100%'}}/>
+                    </Box>
+                    <Box m={2}>
+                        <TextField sx={{ boxShadow: 3 }} id="devMaker" label="제조업체" variant="filled" />
+                        <TextField sx={{ boxShadow: 3 }} id="devSerial" label="시리얼 넘버" variant="filled" />
+                    </Box>
+                    <Box m={2}>
+                        <TextField sx={{ boxShadow: 3 }} id="devModel" label="모델델" variant="filled" />
+                        <TextField sx={{ boxShadow: 3 }} id="devHwVer" label="하드웨어 버전전" variant="filled" />
+                    </Box>
+                    <Box m={2} sx={{ display: 'flex', gap: 2 }}>
+                        <TextField sx={{ boxShadow: 3, width: '50%' }} id="devFwVer" label="펌웨어 버전" variant="filled" />
+                    </Box>
 
-                <Button variant='contained' type="submit" >
-                    Create
-                </Button>
-            </Form>
-        </Box>
+                    <Button variant='contained' type="submit" >
+                        만들기
+                    </Button>
+                </Form>
+            </Box>
         </div>
     )
 }

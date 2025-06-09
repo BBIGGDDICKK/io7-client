@@ -66,6 +66,11 @@ const NewAppId = (props) => {
     }
 
     useEffect(() => {
+        // side-Apps 엘리먼트가 있을 때만 setAttribute 실행
+        const side_tab = document.getElementById('side-Apps');
+        if (side_tab) {
+            side_tab.setAttribute('onClick', 'location.reload()');
+        }
         return () => {
             let side_tab = document.getElementById('side-Devices');
             if (side_tab && typeof side_tab.removeAttribute === 'function') {
@@ -74,24 +79,18 @@ const NewAppId = (props) => {
         };
     }, [])
 
-    let setClick2List = (id) => {
-        let side_tab = document.getElementById(id);
-        side_tab.setAttribute('onClick', 'location.reload()')
-    }
-
     let handleAccessChange = (event) => {
-        setRestricted(event.target.value);
+        setRestricted(event.target.value === 'true');
     };
 
     return (
-        <div class='new-app-container'>
-            {setClick2List('side-Apps')}
-            <h1>New App Id</h1>
+        <div className='new-app-container'>
+            <h1>새로운 앱 ID</h1>
             <Box mt={10} display="flex" >
                 <Form onSubmit={handleSubmit}>
                     <Box m={2}>
-                        <TextField sx={{ boxShadow: 3 }} required id="appId" label="App Id" variant="filled" />
-                        <TextField sx={{ boxShadow: 3 }} id="password" label="Token" variant="filled" />
+                        <TextField sx={{ boxShadow: 3 }} required id="appId" label="앱 ID" variant="filled" />
+                        <TextField sx={{ boxShadow: 3 }} id="password" label="토큰" variant="filled" />
                     </Box>
                     <Box m={2} sx={{ display: 'flex', gap: 2 }}>
                         <FormControl 
@@ -101,9 +100,8 @@ const NewAppId = (props) => {
                             <InputLabel id="device-access-label">디바이스 연결</InputLabel>
                             <Select
                                 id="restricted"
-                                label="Device Access"
-                                defaultValue='all'
-                                value={restricted}
+                                label="디바이스 접속"
+                                value={restricted ? 'true' : 'false'}
                                 onChange={handleAccessChange}
                             >
                                 <MenuItem value='false'>전체 디바이스</MenuItem>
@@ -112,7 +110,7 @@ const NewAppId = (props) => {
                         </FormControl>
                     </Box>
                     <Box m={2}>
-                        <TextField id="appDesc" label="Description" multiline rows={3}  style={{width:'100%'}} />
+                        <TextField id="appDesc" label="설명" multiline rows={3}  style={{width:'100%'}} />
                     </Box>
 
                     <Button variant='contained' type="submit">

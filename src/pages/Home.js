@@ -145,10 +145,7 @@ const Home = () => {
             <header className="mb-8 flex items-center justify-between">
               <h1 className="text-slate-900 text-4xl font-bold tracking-tight">대시보드</h1>
               <div className="relative">
-                <button 
-                  onClick={() => setShowFilter(!showFilter)}
-                  className="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                >
+                <button onClick={() => setShowFilter(!showFilter)} className="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                   <span className="material-icons text-lg">분류</span>
                 </button>
                 {showFilter && (

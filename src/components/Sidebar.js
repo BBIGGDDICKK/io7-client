@@ -90,7 +90,7 @@ const Sidebar = ({ children }) => {
             <div className="flex items-center justify-center w-5 h-5 text-lg">
               <BiIcons.BiLogOutCircle />
             </div>
-            {isExpanded && <span className="ml-3">Logout</span>}
+            {isExpanded && <span className="ml-3">로그아웃</span>}
           </button>
         </div>
       </div>
