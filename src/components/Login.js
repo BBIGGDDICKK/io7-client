@@ -104,7 +104,7 @@ const Login = () => {
                         <LockOutlinedIcon fontSize="large" />
                     </Box>
                     <Typography variant="h5" component="h1">
-                        io7 Management Console
+                        STAY-SENS
                     </Typography>
                 </Box>
 
@@ -187,7 +187,7 @@ const Login = () => {
                 align="center"
                 sx={{ mt: 4 }}
             >
-                © {new Date().getFullYear()} io7 IoT Platform
+                © {new Date().getFullYear()} STAY-SENS. All rights reserved.
             </Typography>
         </Box>
     );

@@ -9,7 +9,7 @@ const Detail = (props) => {
 
     return (
         <div>
-            <h1>Device Information : </h1>
+            <h1>디바이스 정보 : </h1>
             <Box m={2} >
                 <TextField InputProps={{readOnly: true,}} sx={{ boxShadow: 3 }} value={devId} label="Device Id" variant="filled" />
                 <TextField InputProps={{readOnly: true,}} sx={{ boxShadow: 3 }} value={type} label="Device Type" variant="filled" />

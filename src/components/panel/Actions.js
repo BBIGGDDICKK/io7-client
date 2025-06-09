@@ -72,15 +72,15 @@ const Operation = (props) => {
             <h1>Device Id : {devId}</h1>
             <Box m={2}>
                 <Button startIcon={<BsIcons.BsBootstrapReboot/>} variant="contained" 
-                    onClick={() => { rebootDevice() }}>Reboot</Button>
+                    onClick={() => { rebootDevice() }}>리붓</Button>
                 <Button startIcon={<BsIcons.BsRecycle/>} variant="contained" 
-                    onClick={() => { factoryResetDevice() }}>Factory Reset</Button>
+                    onClick={() => { factoryResetDevice() }}>공장 초기화</Button>
             </Box>
 
             <hr />
             <Box m={2}>
                 <Button startIcon={<BsIcons.BsFillCloudArrowDownFill/>} variant="contained" 
-                    onClick={() => { upgradeDevice() }}>Firmware Upgrade</Button>
+                    onClick={() => { upgradeDevice() }}>펌웨어 업그레이드</Button>
             </Box>
             <Box m={2}>
                 <TextField label="Firmware URL" variant="filled" 

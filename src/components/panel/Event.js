@@ -34,13 +34,13 @@ const Event = (props) => {
 
     return (
         <>
-            <h1>Device Id : {devId}</h1>
+            <h1>디바이스 ID : {devId}</h1>
             <TableContainer sx={{ height: 700, width: '100%' }} component={Paper}>
                 <Table id='eventList' sx={{ minWidth: 750 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell sx={{ width: 80 }}><b>Time</b></TableCell>
-                            <TableCell><b>Event</b></TableCell>
+                            <TableCell sx={{ width: 80 }}><b>시간간</b></TableCell>
+                            <TableCell><b>이벤트</b></TableCell>
                         </TableRow>
                     </TableHead>
                         <tbody>

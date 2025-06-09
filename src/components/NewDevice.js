@@ -84,14 +84,18 @@ const NewDevice = (props) => {
     }, [])
 
     let setClick2List = (id) => {
-        let side_tab = document.getElementById(id);
-        side_tab.setAttribute('onClick', 'location.reload()')
+        // let side_tab = document.getElementById(id);
+        // side_tab.setAttribute('onClick', 'location.reload()')
+        const el = document.getElementById(id);
+    if (el) {
+        el.setAttribute('some-attribute', 'some-value');
+    }
     }
     
     return (
         <div class='new-device-container'>
         {setClick2List('side-Devices')}
-        <h1>New Device</h1>
+        <h1>신규 디바이스</h1>
         <Box mt={10} display="flex">
             <Form onSubmit={handleSubmit}>
                 <Box m={2}>
@@ -103,7 +107,7 @@ const NewDevice = (props) => {
                         variant="filled" 
                         sx={{ boxShadow: 3, width: '100%' }}
                     >
-                        <InputLabel id="device-type-label">Device Type</InputLabel>
+                        <InputLabel id="device-type-label">디바이스 종류</InputLabel>
                         <Select
                             labelId="device-type-label"
                             id="deviceType"
@@ -111,8 +115,8 @@ const NewDevice = (props) => {
                             label="Device Type"
                             onChange={handleTypeChange}
                         >
-                            <MenuItem value='device'>Device</MenuItem>
-                            <MenuItem value='gateway'>Gateway</MenuItem>
+                            <MenuItem value='device'>디바이스</MenuItem>
+                            <MenuItem value='gateway'>게이트웨이</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>

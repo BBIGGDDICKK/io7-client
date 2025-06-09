@@ -51,8 +51,8 @@ const AppId = (props) => {
             <div>
                 {setClick2List('side-Apps')}
                 <Box sx={{display: 'flex', justifyContent: 'space-between' }}>
-                    <Button startIcon={<ArrowBackIcon />}  variant="contained" onClick={() => { setChosenApp(undefined) }}>Back to List</Button>
-                    <Button startIcon={<DeleteIcon />} variant="contained" onClick={() => { deleteAppId() }}>Delete</Button>
+                    <Button startIcon={<ArrowBackIcon />}  variant="contained" onClick={() => { setChosenApp(undefined) }}>목록으로 돌아가기</Button>
+                    <Button startIcon={<DeleteIcon />} variant="contained" onClick={() => { deleteAppId() }}>삭제하기</Button>
                 </Box>
                 <hr/>
             </div>

@@ -51,7 +51,7 @@ const Meta = (props) => {
 
     return (
         <>
-            <h1>Device Id : {devId}</h1>
+            <h1>디바이스 ID : {devId}</h1>
             <Box m={2}>
                 <TextField variant="filled" label='Meta Data' rows='10'
                     defaultValue={metaData} multiline sx={{ width: "250%" }}
@@ -59,7 +59,7 @@ const Meta = (props) => {
             </Box>
 
             <Button variant='contained' onClick={(event) => handleSubmit(event)}>
-                Update
+                업데이트
             </Button>
             <h5>{errMessage}</h5>
         </>

@@ -98,7 +98,7 @@ const NewAppId = (props) => {
                             variant="filled" 
                             sx={{ boxShadow: 3, width: '100%' }}
                         >
-                            <InputLabel id="device-access-label">Device Access</InputLabel>
+                            <InputLabel id="device-access-label">디바이스 연결</InputLabel>
                             <Select
                                 id="restricted"
                                 label="Device Access"
@@ -106,8 +106,8 @@ const NewAppId = (props) => {
                                 value={restricted}
                                 onChange={handleAccessChange}
                             >
-                                <MenuItem value='false'>All Devices</MenuItem>
-                                <MenuItem value='true'>Restricted</MenuItem>
+                                <MenuItem value='false'>전체 디바이스</MenuItem>
+                                <MenuItem value='true'>제한된 디바이스</MenuItem>
                             </Select>
                         </FormControl>
                     </Box>
@@ -116,7 +116,7 @@ const NewAppId = (props) => {
                     </Box>
 
                     <Button variant='contained' type="submit">
-                        Create
+                        만들기
                     </Button>
                 </Form>
             </Box>

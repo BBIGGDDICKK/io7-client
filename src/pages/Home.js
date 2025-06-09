@@ -1,9 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import HomeIcon from '@mui/icons-material/Home';
-import MemoryIcon from '@mui/icons-material/Memory';
-import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import SettingsIcon from '@mui/icons-material/Settings';
-
+import GoBackIcon from '../icons/goBack.svg';
 const Home = () => {
   const [currentView, setCurrentView] = useState('dashboard'); // 'dashboard' or 'detail'
   const [selectedSeat, setSelectedSeat] = useState(null);
@@ -14,7 +10,7 @@ const Home = () => {
   const [seats, setSeats] = useState([
     {
       id: 1,
-      name: 'Seat 1',
+      name: '1번 좌석',
       isOccupied: true,
       powerOn: true,
       powerConsumption: 50,
@@ -24,7 +20,7 @@ const Home = () => {
     },
     {
       id: 2,
-      name: 'Seat 2',
+      name: '2번 좌석',
       isOccupied: false,
       powerOn: false,
       powerConsumption: 0,
@@ -34,7 +30,7 @@ const Home = () => {
     },
     {
       id: 3,
-      name: 'Seat 3',
+      name: '3번 좌석',
       isOccupied: true,
       powerOn: true,
       powerConsumption: 75,
@@ -44,7 +40,7 @@ const Home = () => {
     },
     {
       id: 4,
-      name: 'Seat 4',
+      name: '4번 좌석',
       isOccupied: false,
       powerOn: false,
       powerConsumption: 0,
@@ -54,7 +50,7 @@ const Home = () => {
     },
     {
       id: 5,
-      name: 'Seat 5',
+      name: '5번 좌석',
       isOccupied: true,
       powerOn: true,
       powerConsumption: 125,
@@ -147,29 +143,28 @@ const Home = () => {
         <div className="flex h-full grow">
           <main className="flex-1 p-8 overflow-y-auto">
             <header className="mb-8 flex items-center justify-between">
-              <h1 className="text-slate-900 text-4xl font-bold tracking-tight">Smart Cafe Dashboard</h1>
+              <h1 className="text-slate-900 text-4xl font-bold tracking-tight">대시보드</h1>
               <div className="relative">
                 <button 
                   onClick={() => setShowFilter(!showFilter)}
                   className="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
-                  <span className="material-icons text-lg">filter_list</span>
-                  <span>Filter</span>
+                  <span className="material-icons text-lg">분류</span>
                 </button>
                 {showFilter && (
                   <div className="absolute right-0 mt-2 w-64 origin-top-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
                     <div className="p-4 space-y-4">
-                      <h3 className="text-slate-900 text-lg font-semibold leading-tight">Filter Options</h3>
+                      <h3 className="text-slate-900 text-lg font-semibold leading-tight">분류 기준</h3>
                       <label className="flex flex-col">
-                        <span className="text-sm font-medium text-slate-700 mb-1.5">Status</span>
+                        <span className="text-sm font-medium text-slate-700 mb-1.5">상태</span>
                         <select 
                           value={filterStatus}
                           onChange={(e) => setFilterStatus(e.target.value)}
                           className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 focus:outline-0 focus:ring-2 focus:ring-blue-500 border border-slate-300 bg-white focus:border-blue-500 h-12 px-3.5 text-base font-normal leading-normal"
                         >
-                          <option value="all">All Seats</option>
-                          <option value="occupied">Occupied</option>
-                          <option value="available">Available</option>
+                          <option value="all">전체 좌석</option>
+                          <option value="occupied">사용중</option>
+                          <option value="available">사용 가능</option>
                         </select>
                       </label>
                     </div>
@@ -179,26 +174,22 @@ const Home = () => {
             </header>
 
             <section className="mb-8">
-              <h3 className="text-slate-900 text-2xl font-semibold leading-tight tracking-[-0.015em] mb-4">Overview</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 bg-white shadow-sm">
                   <div className="flex items-center justify-between">
-                    <p className="text-slate-700 text-base font-medium leading-normal">Current Time</p>
-                    <span className="material-icons text-blue-600 text-xl">schedule</span>
+                    <p className="text-slate-700 text-base font-bold leading-normal">현재 시간</p>
                   </div>
                   <p className="text-slate-900 text-3xl font-bold leading-tight">{formatTime(currentTime)}</p>
                 </div>
                 <div className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 bg-white shadow-sm">
                   <div className="flex items-center justify-between">
-                    <p className="text-slate-700 text-base font-medium leading-normal">Seat Occupancy</p>
-                    <span className="material-icons text-blue-600 text-xl">people_alt</span>
+                    <p className="text-slate-700 text-base font-bold leading-normal">자리 점유율</p>
                   </div>
                   <p className="text-slate-900 text-3xl font-bold leading-tight">{occupancyRate}%</p>
                 </div>
                 <div className="flex flex-col gap-2 rounded-xl p-6 border border-slate-200 bg-white shadow-sm">
                   <div className="flex items-center justify-between">
-                    <p className="text-slate-700 text-base font-medium leading-normal">Total Power Consumption</p>
-                    <span className="material-icons text-blue-600 text-xl">bolt</span>
+                    <p className="text-slate-700 text-base font-bold leading-normal">전체 전력 소비량</p>
                   </div>
                   <p className="text-slate-900 text-3xl font-bold leading-tight">{totalPowerConsumption} kWh</p>
                 </div>
@@ -206,15 +197,15 @@ const Home = () => {
             </section>
 
             <section className="mb-8">
-              <h3 className="text-slate-900 text-2xl font-semibold leading-tight tracking-[-0.015em] mb-4">Seat Information</h3>
+              <h3 className="text-slate-900 text-2xl font-semibold leading-tight tracking-[-0.015em] mb-4">좌석 정보</h3>
               <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
                 <table className="w-full">
                   <thead className="bg-slate-50">
                     <tr>
-                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">Seat ID</th>
-                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">Status</th>
-                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">Power Usage</th>
-                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">Time Occupied</th>
+                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">좌석 ID</th>
+                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">상태</th>
+                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">전력 사용량</th>
+                      <th className="px-6 py-4 text-left text-slate-600 text-xs font-semibold uppercase tracking-wider">사용시간</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200">
@@ -231,14 +222,11 @@ const Home = () => {
                               ? 'bg-red-100 text-red-700' 
                               : 'bg-green-100 text-green-700'
                           }`}>
-                            <span className="material-icons text-sm mr-1.5">
-                              {seat.isOccupied ? 'chair' : 'event_seat'}
-                            </span>
-                            {seat.isOccupied ? 'Occupied' : 'Available'}
+                            {seat.isOccupied ? '사용중' : '사용가능'}
                           </span>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-slate-600 text-sm">{seat.powerConsumption} kWh</td>
-                        <td className="px-6 py-4 whitespace-nowrap text-slate-600 text-sm">{seat.occupiedHours} hours</td>
+                        <td className="px-6 py-4 whitespace-nowrap text-slate-600 text-sm">{seat.occupiedHours} 시간</td>
                       </tr>
                     ))}
                   </tbody>
@@ -247,18 +235,18 @@ const Home = () => {
             </section>
 
             <section>
-              <h3 className="text-slate-900 text-2xl font-semibold leading-tight tracking-[-0.015em] mb-4">Real-time Statistics</h3>
+              <h3 className="text-slate-900 text-2xl font-semibold leading-tight tracking-[-0.015em] mb-4">실시간 통계</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex flex-col gap-2 rounded-xl p-6 bg-slate-100 border border-slate-200">
-                  <p className="text-slate-700 text-base font-medium leading-normal">Average Occupancy Time</p>
-                  <p className="text-slate-900 text-3xl font-bold leading-tight">{averageOccupancyTime.toFixed(1)} hours</p>
+                  <p className="text-slate-700 text-base font-medium leading-normal">평균 사용 시간</p>
+                  <p className="text-slate-900 text-3xl font-bold leading-tight">{averageOccupancyTime.toFixed(1)} 시간</p>
                 </div>
                 <div className="flex flex-col gap-2 rounded-xl p-6 bg-slate-100 border border-slate-200">
-                  <p className="text-slate-700 text-base font-medium leading-normal">Peak Power Usage</p>
+                  <p className="text-slate-700 text-base font-medium leading-normal">피크 타임 전력 사용량</p>
                   <p className="text-slate-900 text-3xl font-bold leading-tight">{peakPowerUsage} kWh</p>
                 </div>
                 <div className="flex flex-col gap-2 rounded-xl p-6 bg-slate-100 border border-slate-200">
-                  <p className="text-slate-700 text-base font-medium leading-normal">Total Seats Available</p>
+                  <p className="text-slate-700 text-base font-medium leading-normal">전체 사용가능 좌석</p>
                   <p className="text-slate-900 text-3xl font-bold leading-tight">{availableSeats}</p>
                 </div>
               </div>
@@ -274,12 +262,11 @@ const Home = () => {
     <div className="bg-gray-100 min-h-screen">
       <div className="px-4 sm:px-8 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
         <div className="max-w-[960px] flex-1">
-          {/* 뒤로가기 버튼 */}
           <button
             onClick={handleBackToDashboard}
             className="flex items-center gap-2 mb-6 text-gray-600 hover:text-gray-900 transition-colors duration-200"
           >
-            <span className="material-icons">arrow_back</span>
+            <img src={GoBackIcon} alt="뒤로가기" className="max-w-[40px]" />
             <span className="font-medium">대시보드로 돌아가기</span>
           </button>
 
@@ -288,22 +275,17 @@ const Home = () => {
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="material-icons text-3xl text-blue-600">chair</span>
                     <div>
                       <p className="text-gray-900 text-xl font-bold">{selectedSeat?.name}</p>
                       <p className={`text-sm font-medium flex items-center ${
                         selectedSeat?.isOccupied ? 'text-emerald-500' : 'text-gray-500'
                       }`}>
-                        <span className="material-icons text-base mr-1">event_seat</span>
                         {selectedSeat?.isOccupied ? '사용 중' : '사용 가능'}
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-2 text-sm">
-                    <span className={`material-icons text-lg ${
-                      selectedSeat?.powerOn ? 'text-amber-500' : 'text-gray-400'
-                    }`}>power</span>
                     <p className="text-gray-700">
                       전원: <span className={`font-semibold ${
                         selectedSeat?.powerOn ? 'text-gray-900' : 'text-gray-500'
@@ -321,7 +303,6 @@ const Home = () => {
                       onClick={togglePower}
                       className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
                     >
-                      <span className="material-icons text-base">power_settings_new</span>
                       <span>전원 토글</span>
                     </button>
                     
@@ -329,14 +310,11 @@ const Home = () => {
                       onClick={toggleOccupancy}
                       className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200"
                     >
-                      <span className="material-icons text-base">
-                        {selectedSeat?.isOccupied ? 'check_circle' : 'radio_button_unchecked'}
-                      </span>
                       <span>{selectedSeat?.isOccupied ? '사용 완료' : '사용 시작'}</span>
                     </button>
                     
                     <button className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 transition-colors duration-200">
-                      <span className="material-icons text-base">edit</span>
+                      
                       <span>정보 수정</span>
                     </button>
                   </div>
@@ -355,7 +333,6 @@ const Home = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
                 <div className="flex items-center justify-between sm:justify-start sm:gap-4">
                   <div className="flex items-center text-gray-600">
-                    <span className="material-icons text-xl mr-2">schedule</span>
                     <p className="text-sm font-medium">시작 시간</p>
                   </div>
                   <p className="text-gray-900 text-sm font-semibold">
@@ -365,7 +342,6 @@ const Home = () => {
                 
                 <div className="flex items-center justify-between sm:justify-start sm:gap-4">
                   <div className="flex items-center text-gray-600">
-                    <span className="material-icons text-xl mr-2">hourglass_empty</span>
                     <p className="text-sm font-medium">경과 시간</p>
                   </div>
                   <p className="text-gray-900 text-sm font-semibold">

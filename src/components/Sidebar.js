@@ -15,28 +15,28 @@ const Sidebar = ({ children }) => {
 
   const logoff = () => {
     if (window.confirm('Do you want to logoff?')) {
-	    logout();
+      logout();
     }
   };
 
   const menuItems = [
     {
-      text: "Home",
+      text: "대시보드",
       path: '/',
       icon: <HomeIcon fontSize='large' />,
     },
     {
-      text: "Devices",
+      text: "기기 연결",
       path: '/devices',
       icon: <MemoryIcon fontSize='large' />,
     },
     {
-      text: "Apps",
+      text: "앱(서비스) 연결",
       path: '/appIds',
       icon: <AppRegistrationIcon fontSize='large' />,
     },
     {
-      text: "Settings",
+      text: "설정",
       path: '/settings',
       icon: <SettingsIcon fontSize='large' />,
     },
@@ -47,41 +47,57 @@ const Sidebar = ({ children }) => {
   }
 
   return (
-    <div className='container'>
-      <div
-        className={
-          isExpanded
-            ? "sidebar-container"
-            : "sidebar-container sidebar-container-out"
-        }
-        onMouseLeave={() => setIsExpanded(false)}
-      >
-        <div className="nav-upper">
-          <div className="nav-heading">
-            <img
-              className="logo"
-              src="icons/io7lab-7.png"
-              width="40"
-              alt="logo"
-              onClick={() => setIsExpanded(!isExpanded)}
-              onMouseOver={() => setIsExpanded(true)}
-            />
-            {isExpanded && <p className="nav-heading-title">io7 Device Console</p>}
-          </div>
+    <div className="relative flex size-full min-h-screen bg-slate-50" style={{ fontFamily: 'Inter, "Noto Sans", sans-serif' }}>
+      <div className={`flex flex-col bg-white border-r border-slate-200 shadow-sm transition-all duration-300 ease-in-out w-64`}>
+        <div className="flex items-center p-4 border-b border-slate-200">
+          <img className="w-8 h-8 rounded-lg cursor-pointer hover:scale-105 transition-transform" src="icons/io7lab-7.png" alt="logo" />
+
+          <h1 className="ml-3 text-slate-900 text-lg font-semibold leading-tight tracking-tight">
+            STAY-SENS
+          </h1>
         </div>
-        <div className="nav-menu">
-          {menuItems.map(({ text, icon, path }) => (
-            <NavLink to={path} key={text} id={`side-${text}`} className="menu-item">
-              <div className='menu-item-icon'>{icon}</div>
-              {isExpanded && <div className='menu-item-text'>{text}</div>}
-            </NavLink>
-          ))}
-          <div className="nav-footer" onClick={logoff}>
-            <div className='logout-icon'><BiIcons.BiLogOutCircle /></div>
+
+        <nav className="flex-1 py-4">
+          <div className="space-y-1">
+            {menuItems.map(({ text, icon, path }) => (
+              <NavLink
+                to={path}
+                key={text}
+                id={`side-${text}`}
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-3 mx-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${isActive
+                    ? "bg-blue-50 text-blue-700 border-l-4 border-blue-600"
+                    : "text-slate-700 hover:bg-slate-50 hover:text-slate-900"
+                  }`
+                }
+              >
+                <div className="flex items-center justify-center w-5 h-5 text-lg">
+                  {icon}
+                </div>
+                <span className="ml-3 whitespace-nowrap overflow-hidden">
+                  {text}
+                </span>
+              </NavLink>
+            ))}
           </div>
+        </nav>
+
+        <div className="border-t border-slate-200 p-2">
+          <button
+            onClick={logoff}
+            className="flex items-center w-full px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-red-50 hover:text-red-700 transition-colors cursor-pointer"
+          >
+            <div className="flex items-center justify-center w-5 h-5 text-lg">
+              <BiIcons.BiLogOutCircle />
+            </div>
+            {isExpanded && <span className="ml-3">Logout</span>}
+          </button>
         </div>
       </div>
-      <div className="children-container">{children}</div>
+
+      <div className="flex-1 overflow-y-auto">
+        {children}
+      </div>
     </div>
   );
 };

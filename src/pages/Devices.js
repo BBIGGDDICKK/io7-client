@@ -113,19 +113,19 @@ const Devices = () => {
                         {newDev && <NewDevice setNewDev={setNewDev} setAdded={setAdded} setChosenDevice={setChosenDevice} />}
                         {!newDev && <>
                             <div className='newDevTitle'>
-                                <h1>Device List</h1>
-                                <Button startIcon={<MemoryIcon/>} sx={{ height: '36.5px' }} size="medium" variant="contained" onClick={()=>{setNewDev(true)}}>New Device</Button>
+                                <h1>디바이스 목록</h1>
+                                <Button startIcon={<MemoryIcon/>} sx={{ height: '36.5px' }} size="medium" variant="contained" onClick={()=>{setNewDev(true)}}>디바이스 등록</Button>
                             </div>
                             <TableContainer sx={{ height: 700, width: '100%' }} component={Paper}>
                                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell>Device Id</TableCell>
-                                            <TableCell>online</TableCell>
-                                            <TableCell>Type</TableCell>
-                                            <TableCell>Created By</TableCell>
-                                            <TableCell>Created Date</TableCell>
-                                            <TableCell>Detail</TableCell>
+                                            <TableCell>디바이스 ID</TableCell>
+                                            <TableCell>연결 여부</TableCell>
+                                            <TableCell>종류</TableCell>
+                                            <TableCell>생성자</TableCell>
+                                            <TableCell>생성일</TableCell>
+                                            <TableCell>정보</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>

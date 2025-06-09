@@ -65,17 +65,17 @@ const AppIds = () => {
                         {newApp && <NewAppId setNewApp={setNewApp} setAdded={setAdded} setChosenApp={setChosenApp} />}
                         {!newApp && <>
                             <div className='newAppTitle'>
-                                <h1>App Id List</h1>
+                                <h1>앱 ID 리스트</h1>
                                 <Button startIcon={<AppRegistrationIcon/>} sx={{ height: '36.5px' }} size="medium" variant="contained" onClick={()=>{setNewApp(true)}}>New App Id</Button>
                             </div>
                             <TableContainer sx={{ height: 700, width: '100%' }} component={Paper}>
                                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell>App Id</TableCell>
-                                            <TableCell>Description</TableCell>
-                                            <TableCell>Created Date</TableCell>
-                                            <TableCell>Detail</TableCell>
+                                            <TableCell>앱 ID</TableCell>
+                                            <TableCell>설명</TableCell>
+                                            <TableCell>생성일</TableCell>
+                                            <TableCell>정보</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>

@@ -90,8 +90,8 @@ const Device = (props) => {
         <>
             {setClick2List('side-Devices')}
             <Box sx={{display: 'flex', justifyContent: 'space-between' }}>
-                <Button startIcon={<ArrowBackIcon />} variant="contained" onClick={() => { setChosenDevice(undefined) }}>Back to List</Button>
-                <Button startIcon={<DeleteIcon />} variant="contained" onClick={() => { deleteDevice() }}>Delete</Button>
+                <Button startIcon={<ArrowBackIcon />} variant="contained" onClick={() => { setChosenDevice(undefined) }}>목록으로 돌아가기</Button>
+                <Button startIcon={<DeleteIcon />} variant="contained" onClick={() => { deleteDevice() }}>삭제하기</Button>
             </Box>
             <hr />
             <Box
